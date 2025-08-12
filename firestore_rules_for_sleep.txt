@@ -1,0 +1,123 @@
+// Firestore Security Rules for Sleep Records
+// Add these rules to your firestore.rules file
+
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Sleep records - allow users to manage their own data
+    match /sleep_records/{document} {
+      allow read, write: if request.auth != null && 
+                        request.auth.uid == resource.data.userId;
+      allow create: if request.auth != null && 
+                   request.auth.uid == request.resource.data.userId;
+    }
+    
+    // Other collections (water_intakes, meals, workouts, etc.)
+    match /water_intakes/{document} {
+      allow read, write: if request.auth != null && 
+                        request.auth.uid == resource.data.userId;
+      allow create: if request.auth != null && 
+                   request.auth.uid == request.resource.data.userId;
+    }
+    
+    match /meals/{document} {
+      allow read, write: if request.auth != null && 
+                        request.auth.uid == resource.data.userId;
+      allow create: if request.auth != null && 
+                   request.auth.uid == request.resource.data.userId;
+    }
+    
+    match /workouts/{document} {
+      allow read, write: if request.auth != null && 
+                        request.auth.uid == resource.data.userId;
+      allow create: if request.auth != null && 
+                   request.auth.uid == request.resource.data.userId;
+    }
+    
+    match /body_compositions/{document} {
+      allow read, write: if request.auth != null && 
+                        request.auth.uid == resource.data.userId;
+      allow create: if request.auth != null && 
+                   request.auth.uid == request.resource.data.userId;
+    }
+    
+    match /fasting_records/{document} {
+      allow read, write: if request.auth != null && 
+                        request.auth.uid == resource.data.userId;
+      allow create: if request.auth != null && 
+                   request.auth.uid == request.resource.data.userId;
+    }
+    
+    match /notifications/{document} {
+      allow read, write: if request.auth != null && 
+                        request.auth.uid == resource.data.userId;
+      allow create: if request.auth != null && 
+                   request.auth.uid == request.resource.data.userId;
+    }
+    
+    // User profiles
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+  }
+}
+
+/*
+IMPORTANT NOTES:
+
+1. FIRESTORE INDEXES NEEDED:
+   For sleep_records collection, create these composite indexes:
+   - userId (Ascending) + date (Descending)
+   - userId (Ascending) + createdAt (Descending)
+   
+   For fasting_records collection, create these composite indexes:
+   - userId (Ascending) + date (Descending)
+   - userId (Ascending) + status (Ascending) + startTime (Descending)
+
+2. TO CREATE INDEXES:
+   - Go to Firebase Console > Firestore > Indexes
+   - Click "Create Index"
+   - Collection: sleep_records
+   - Fields: userId (Ascending), date (Descending)
+   - Click "Create Index"
+
+3. OR USE FIREBASE CLI:
+   Add to firestore.indexes.json:
+   {
+     "indexes": [
+       {
+         "collectionGroup": "sleep_records",
+         "queryScope": "COLLECTION",
+         "fields": [
+           {"fieldPath": "userId", "order": "ASCENDING"},
+           {"fieldPath": "date", "order": "DESCENDING"}
+         ]
+       },
+       {
+         "collectionGroup": "fasting_records",
+         "queryScope": "COLLECTION",
+         "fields": [
+           {"fieldPath": "userId", "order": "ASCENDING"},
+           {"fieldPath": "date", "order": "DESCENDING"}
+         ]
+       },
+       {
+         "collectionGroup": "fasting_records",
+         "queryScope": "COLLECTION",
+         "fields": [
+           {"fieldPath": "userId", "order": "ASCENDING"},
+           {"fieldPath": "status", "order": "ASCENDING"},
+           {"fieldPath": "startTime", "order": "DESCENDING"}
+         ]
+       }
+     ]
+   }
+
+4. TROUBLESHOOTING:
+   - If you get "requires an index" error, check Firebase Console for auto-generated index suggestions
+   - Click the provided link in the error to auto-create the index
+   - Wait 5-10 minutes for index to build
+
+5. AUTHENTICATION:
+   Make sure Firebase Authentication is set up and users are signed in before accessing Firestore.
+*/ 

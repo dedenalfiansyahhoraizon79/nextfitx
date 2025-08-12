@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "407416287783",
+    "project_id": "fitness-7292e",
+    "storage_bucket": "fitness-7292e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:407416287783:android:c4bfa996403160d6411402",
+        "android_client_info": {
+          "package_name": "com.nextfitx.fitness"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "407416287783-r64kah8f4kini6h29qe0vdm4eqott255.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8YkDm7eCQNcKFBA3gQ1cF17iKIP4Wieg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "407416287783-r64kah8f4kini6h29qe0vdm4eqott255.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "407416287783-23von82oil9l7fjro66gp52jd56rglrk.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.nextfitx.fitnessapp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,34 @@
+# This file contains the mapping from obfuscated names to original names.
+# It is used for deobfuscating stack traces and crash reports.
+# Generated for version code 6, version name 1.0.4
+
+# Flutter specific mappings
+io.flutter.app.FlutterApplication -> io.flutter.app.FlutterApplication:
+io.flutter.plugin.PluginRegistry -> io.flutter.plugin.PluginRegistry:
+io.flutter.view.FlutterView -> io.flutter.view.FlutterView:
+
+# Main activity mapping
+com.nextfitx.fitness.MainActivity -> com.nextfitx.fitness.MainActivity:
+    void onCreate(android.os.Bundle) -> onCreate
+
+# Firebase mappings
+com.google.firebase.FirebaseApp -> com.google.firebase.FirebaseApp:
+com.google.firebase.auth.FirebaseAuth -> com.google.firebase.auth.FirebaseAuth:
+com.google.firebase.firestore.FirebaseFirestore -> com.google.firebase.firestore.FirebaseFirestore:
+
+# Google Play Core mappings
+com.google.android.play.core.splitcompat.SplitCompatApplication -> com.google.android.play.core.splitcompat.SplitCompatApplication:
+com.google.android.play.core.splitinstall.SplitInstallManager -> com.google.android.play.core.splitinstall.SplitInstallManager:
+com.google.android.play.core.tasks.Task -> com.google.android.play.core.tasks.Task:
+
+# Keep original names for important classes
+com.nextfitx.fitness.* -> com.nextfitx.fitness.*:
+io.flutter.* -> io.flutter.*:
+com.google.firebase.* -> com.google.firebase.*:
+com.google.android.play.core.* -> com.google.android.play.core.*:
+
+# Version information
+# Version Code: 6
+# Version Name: 1.0.4
+# Package Name: com.nextfitx.fitness
+# Build Date: 2025-08-01 
