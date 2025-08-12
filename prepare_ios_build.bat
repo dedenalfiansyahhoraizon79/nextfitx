@@ -47,7 +47,7 @@ echo 2. Install Xcode from App Store
 echo 3. Install CocoaPods: sudo gem install cocoapods
 echo 4. Open ios/Runner.xcworkspace in Xcode
 echo 5. Configure signing in Xcode
-echo 6. Run: cd ios && pod install
+echo 6. Run: cd ios && pod install (iOS 13.0+ required)
 echo 7. Build in Xcode or use: flutter build ios
 echo.
 echo See IOS_BUILD_CHECKLIST.md for detailed steps

@@ -71,7 +71,7 @@ flutter build ios --release --no-codesign
 ## 🔧 Konfigurasi yang Sudah Dibuat
 
 ### Podfile
-- iOS deployment target: 12.0
+- iOS deployment target: 13.0
 - Framework configuration
 - Permission definitions
 - Post-install hooks

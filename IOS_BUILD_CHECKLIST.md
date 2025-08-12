@@ -9,7 +9,7 @@ Build iOS tidak bisa dilakukan di Windows karena memerlukan Xcode yang hanya ter
 ### 1. Persyaratan Sistem
 - [ ] macOS (tidak bisa di Windows)
 - [ ] Xcode terinstall (versi terbaru)
-- [ ] iOS Simulator atau device fisik
+- [ ] iOS Simulator atau device fisik (iOS 13.0+)
 - [ ] Apple Developer Account (untuk distribusi)
 
 ### 2. Konfigurasi Flutter
